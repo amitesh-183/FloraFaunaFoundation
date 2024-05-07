@@ -1,5 +1,6 @@
+"use client"
 import React from "react";
-import { Typography, Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
+import { Typography, TypographyProps , Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
 
 type FAQ = {
   title: string;
