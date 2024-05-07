@@ -1,15 +1,18 @@
-"use client";
 import React from "react";
-
 import { Typography, Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
-const FAQS = [
+
+type FAQ = {
+  title: string;
+  desc: string;
+};
+
+const FAQS: FAQ[] = [
   {
     title: "How can I donate to Flora Fauna Foundation?",
     desc: "Donating to Flora Fauna Foundation is easy! You can make a secure online donation through our website by clicking on the \"Donate\" button. We also accept donations via check or bank transfer. Your generosity helps us provide essential care and support to animals in need.",
   },
   {
-    title:
-      "Do you have volunteer opportunities available?",
+    title: "Do you have volunteer opportunities available?",
     desc: "Yes, we welcome volunteers who are passionate about animal welfare! Whether you have experience working with animals or want to lend a hand at events, there are plenty of ways to get involved. Visit our \"Volunteer\" page to learn more about current opportunities and how to sign up.",
   },
   {
@@ -26,34 +29,34 @@ const FAQS = [
   },
 ];
 
-export function Faq() {
-  const [open, setOpen] = React.useState(0);
-  const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
+function Faq() {
+  const [open, setOpen] = React.useState<number | null>(null);
+
+  const handleOpen = (value: number) => {
+    setOpen(open === value ? null : value);
+  };
 
   return (
     <section className="px-8 py-40">
       <div className="container mx-auto">
         <div className="text-center">
           <Typography variant="h1" color="blue-gray" className="mb-4">
-          Frequently Asked Questions
+            Frequently Asked Questions
           </Typography>
         </div>
         <div className="mx-auto lg:max-w-screen-lg lg:px-20">
-          {FAQS.map(({ title, desc }, key) => (
+          {FAQS.map((faq, key) => (
             <Accordion
               key={key}
               open={open === key + 1}
               onClick={() => handleOpen(key + 1)}
             >
               <AccordionHeader className="text-left text-gray-900">
-                {title}
+                {faq.title}
               </AccordionHeader>
               <AccordionBody>
-                <Typography
-                  color="blue-gray"
-                  className="font-normal text-gray-500"
-                >
-                  {desc}
+                <Typography variant="body1" color="blue-gray" className="font-normal text-gray-500">
+                  {faq.desc}
                 </Typography>
               </AccordionBody>
             </Accordion>
@@ -63,6 +66,5 @@ export function Faq() {
     </section>
   );
 }
-
 
 export default Faq;
