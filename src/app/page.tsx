@@ -1,25 +1,22 @@
-// components
 import { Navbar, Footer } from "@/components";
-
-// sections
-import Hero from "./hero";
-import TopBookCategories from "./top-book-categories";
-import BackToSchoolBooks from "./back-to-school-books";
-import OtherBookOffers from "./other-book-offers";
-import CarouselFeatures from "./carousel-features";
-import GetYourBookFromUs from "./get-your-book-from-us";
-import Faq from "./faq";
+import Hero from "./sections/hero";
+import MissionSection from "./sections/mission";
+import ImpactSection from "./sections/impact";
+import HelpSection from "./sections/help";
+import GallerySection from "./sections/gallery";
+import ContactSection from "./sections/contact";
+import Faq from "./sections/faq";
 
 export default function Campaign() {
   return (
     <>
       <Navbar />
       <Hero />
-      <TopBookCategories />
-      {/* <BackToSchoolBooks /> */}
-      {/* <OtherBookOffers /> */}
-      <GetYourBookFromUs />
-      {/* <CarouselFeatures /> */}
+      <MissionSection />
+      <ImpactSection />
+      <GallerySection />
+      <HelpSection />
+      <ContactSection />
       <Faq />
       <Footer />
     </>
